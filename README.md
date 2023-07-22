@@ -9,6 +9,7 @@
 
 ## Biblioteki
 - [hd44780](https://www.arduinolibraries.info/libraries/hd44780)
+- [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/)
 ## Połączenia
 
 ### Wyświetlacz
@@ -45,13 +46,13 @@ void loop() {
 ### Kroki
 Na początku zapisz najwyższą wartość, jaką czujnik uzyskuje, gdy jest suchy. Zmień wartość w kodzie (domyślnie 603) na zmierzoną:
 ```
-const int dryValue = 603; -> const int dryValue = TWOJA_WARTOŚĆ;
+const int dryValue = 616; -> const int dryValue = TWOJA_WARTOŚĆ;
 ```
 
 Następnie zmierz wartość, jaką czujnik uzyskuje, gdy jest najbardziej mokry. Zmierz wartość na zmierzoną.
 
 ```
-const int wetValue = 603; -> const int wetValue = TWOJA_WARTOŚĆ;
+const int wetValue = 292; -> const int wetValue = TWOJA_WARTOŚĆ;
 ```
 
 
