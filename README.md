@@ -62,6 +62,17 @@ const int wetValue = 292; -> const int wetValue = TWOJA_WARTOŚĆ;
 
 Teraz wystarczy załadować kod do Arduino i wszytko powinno działać!
 
+# Zasada działania
+
+Czujnik co 100ms sprawdza poziom wilgotności gleby. Następnie ta wartość jest przesyłana do Arduino, gdzie zostaje przetworzona. Na jej podstawie kontroler określa procent wilgotność gleby zgodnie ze zmienną:
+```percent = 100-((soilCapacityValue-(dryValue-wetValue))*100)/wetValue;```
+
+Na podstawie tej wartości funkcja `displayMoistureBar` tworzy z niestandardowych znaków pasek postępu, który uwzględnia już błąd pomiarowy (109% -> 100%, -10% -> 0%). Błąd pomiarowy powstaje wskutek złej kalibracji czujnika.
+
+W podobny sposób funkcja `displayFixedPercentage` przedstawia już wartość która jeżeli nie zawiera się w przedziale 0-100, zostanie zamieniona na najbliższą wartość (0% lub 100%). 
+
+Funkcje po przetworzeniu wszystkich danych tworzą obraz na wyświetlaczu, komunikując się z nim modułem I2C. 
+
 # 🇺🇸 Soil Moisture Sensor
 A simple soil moisture sensor using the Arduino UNO microcontroller.
 
@@ -122,3 +133,14 @@ void loop() {
    ```
 
 Now, load the code onto Arduino, and everything should work!
+
+# Operating Principle
+
+The sensor checks the soil moisture level every 100ms. Subsequently, this value is transmitted to Arduino, where it undergoes processing. Based on this information, the controller determines the soil moisture percentage using the formula:
+```percent = 100-((soilCapacityValue-(dryValue-wetValue))*100)/wetValue;```
+
+Using this value, the `displayMoistureBar` function creates a progress bar with custom characters, accounting for measurement errors (109% -> 100%, -10% -> 0%). Measurement errors result from sensor miscalibration.
+
+Similarly, the `displayFixedPercentage` function presents a value that, if outside the range of 0-100, will be rounded to the nearest limit (0% or 100%).
+
+After processing all the data, all the functions generate an image on the display by communicating with the I2C module.
