@@ -12,7 +12,7 @@ const int LCD_COLS = 16; //Default LCD parameters
 const int LCD_ROWS = 2;
 
 const int dryValue = 615; //See https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/README.md#kalibracja
-const int wetValue = 292; //for the calibration steps.
+const int wetValue = 292; //or https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/README.md#calibration
 
 int percent;
 int soilCapacityValue;
