@@ -11,8 +11,8 @@ hd44780_I2Cexp lcd2(0x27); //I2C Adress for the LCD display
 const int LCD_COLS = 16; //Default LCD parameters
 const int LCD_ROWS = 2;
 
-const int dryValue = 615; //See github for more infromations!
-const int wetValue = 292; //See github for more infromations!
+const int dryValue = 615; //See this sensor github repo 
+const int wetValue = 292; //for the calibration steps.
 
 int percent;
 int soilCapacityValue;
@@ -20,8 +20,8 @@ int soilCapacityValue;
 String soilHumidityTitle = "Soil Humidity";  //Title on display
 
 //Custom chars
-byte middleEmptyChar[] = {   //There's some errors, but code will work
-  B11111,                    //I'm too lazy to fix that now.
+byte middleEmptyChar[] = {   //There's some errors with custom chars, percentage bar may be 
+  B11111,                    //displaying wrong value. I will fix that in the future.
   B00000,
   B00000,
   B00000,
@@ -403,7 +403,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
 }
 
 void displayFixedPercentage(int percentage) {  //This function will display 100% even if real value is (for example) 103.
-  if (percentage >= 100) {                     //Beacuse it is hard to calibrate corecctly the sensor
+  if (percentage >= 100) {                     //Due to low accuracy sensor calibration.
     lcd.setCursor(11, 1);
     lcd.print("100%   ");
   } else if (percentage <= 0) {
@@ -416,4 +416,6 @@ void displayFixedPercentage(int percentage) {  //This function will display 100%
 }
 
 //This is the END! Enjoy.
-//Developer's github: https://github.com/vBagieta/soil-moisture-sensor
+//GitHub repo: https://github.com/vBagieta/soil-moisture-sensor
+
+//Made by vBagieta ©2023
