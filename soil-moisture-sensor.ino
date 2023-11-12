@@ -11,7 +11,7 @@ hd44780_I2Cexp lcd2(0x27); //I2C Adress for the LCD display
 const int LCD_COLS = 16; //Default LCD parameters
 const int LCD_ROWS = 2;
 
-const int dryValue = 615; //See this sensor github repo 
+const int dryValue = 615; //See https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/README.md#kalibracja
 const int wetValue = 292; //for the calibration steps.
 
 int percent;
@@ -416,6 +416,6 @@ void displayFixedPercentage(int percentage) {  //This function will display 100%
 }
 
 //This is the END! Enjoy.
-//GitHub repo: https://github.com/vBagieta/soil-moisture-sensor
+//GitHub repo: https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/README.md
 
 //Made by vBagieta ©2023
