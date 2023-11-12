@@ -1,15 +1,22 @@
 # Czujnik wilgotnośći gleby
-[Kod](https://github.com/vBagieta/soil-moisture-sensor/blob/main/soil-moisture-sensor.ino)
+Prosty czujnik wilgotności gleby używający mikrokontrolera Arduino UNO. 
 
-## Wymagania
+[Wyświetl kod](https://github.com/vBagieta/soil-moisture-sensor/blob/main/soil-moisture-sensor.ino)
+### Wymagania
 - [Arduino UNO](https://botland.com.pl/arduino-seria-podstawowa-oryginalne-plytki/1060-arduino-uno-rev3-a000066-7630049200050.html)
 - [Czujnik wilgotności gleby](https://botland.com.pl/gravity-czujniki-pogodowe/10305-dfrobot-gravity-analogowy-czujnik-wilgotnosci-gleby-odporny-na-korozje-sen0193-5903351243155.html?cd=18298825651&ad=&kd=&gclid=CjwKCAjwgqejBhBAEiwAuWHioMwWA4SEuGi1RUKJWuG2f7o5MhYemAxIOgkFh670djLlfkb2HUvX_BoCisoQAvD_BwE)
 - [Wyświetlacz LCD (2x16) wraz z modułem I2C](https://botland.com.pl/wyswietlacze-alfanumeryczne-i-graficzne/2351-wyswietlacz-lcd-2x16-znakow-niebieski-konwerter-i2c-lcm1602-5904422309244.html)
 
+### Język programowania
 
-## Biblioteki
+Ten program jest napisany w języku programowania C++.
+
+
+### Wykorzystane biblioteki
 - [hd44780](https://www.arduinolibraries.info/libraries/hd44780)
 - [Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/)
+
+
 ## Połączenia
 
 ### Wyświetlacz
@@ -28,8 +35,8 @@ Pin `VCC` z pinem `3.3V` na Arduino
 
 Pin `AUOT` z pinem `A0` na Arduino
 
-## Kalibracja czujnika wilgotnośći
-### Kod do kalibracji:
+# Kalibracja
+### Kod do kalibracji czujnika
 Pin danych z czujnika został podpięty do pinu `A0`!
 
 ```
