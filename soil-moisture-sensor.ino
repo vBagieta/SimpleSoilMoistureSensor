@@ -12,7 +12,7 @@ const int LCD_COLS = 16; //Default LCD parameters
 const int LCD_ROWS = 2;
 
 const int dryValue = 615; //See https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/README.md#kalibracja
-const int wetValue = 292; //or https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/README.md#calibration
+const int wetValue = 292; //or https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/README.md#calibration to see EN translation
 
 int percent;
 int soilCapacityValue;
@@ -20,8 +20,8 @@ int soilCapacityValue;
 String soilHumidityTitle = "Soil Humidity";  //Title on display
 
 //Custom chars
-byte middleEmptyChar[] = {   //There's some errors with custom chars, percentage bar may be 
-  B11111,                    //displaying wrong value. I will fix that in the future.
+byte middleEmptyChar[] = {
+  B11111,
   B00000,
   B00000,
   B00000,
@@ -157,18 +157,18 @@ void setup()
 }
 
 void loop() {
-  soilCapacityValue = analogRead(A0); //Read the value from sensor (Value from A0 analog port)
+  soilCapacityValue = analogRead(A0); //Read the value from sensor
   percent = 100-((soilCapacityValue-(dryValue-wetValue))*100)/wetValue;  //Make percent using data
                                                                          //See github for more informations
   lcd.print(soilHumidityTitle); //Set title on LCD display
   lcd.setCursor(0, 1);
-  displayMoistureBar(percent); //Display bar on LCD based on humidity percent
-  displayFixedPercentage(percent); //Display only 0-100 percents next to the bar
+  displayBar(percent); //Display bar on LCD based on humidity percent
+  displayPercentage(percent); //Display only 0-100 percents next to the bar
   delay(100); //Delay this loop for 0.1s
 }
 
-void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1/2 Segment = 5%)
-  if (progress >= 100) {
+void displayBar(int x) { //Make a percentage bar
+  if (x >= 100) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -179,7 +179,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(6);
     lcd.write(6);
     lcd.write(8);
-  } else if (progress >= 95) {
+  } else if (x >= 95) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -190,7 +190,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(6);
     lcd.write(6);
     lcd.write(7);
-  } else if (progress >= 90) {
+  } else if (x >= 90) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -201,7 +201,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(6);
     lcd.write(6);
     lcd.write(2);
-  } else if (progress >= 85) {
+  } else if (x >= 85) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -212,7 +212,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(6);
     lcd.write(4);
     lcd.write(2);
-  } else if (progress >= 80) {
+  } else if (x >= 80) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -223,7 +223,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(6);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 75) {
+  } else if (x >= 75) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -234,7 +234,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(4);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 70) {
+  } else if (x >= 70) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -245,7 +245,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 65) {
+  } else if (x >= 65) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -256,7 +256,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 60) {
+  } else if (x >= 60) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -267,7 +267,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 55) {
+  } else if (x >= 55) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -278,7 +278,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 50) {
+  } else if (x >= 50) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -289,7 +289,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 45) {
+  } else if (x >= 45) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -300,7 +300,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 40) {
+  } else if (x >= 40) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -311,7 +311,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 35) {
+  } else if (x >= 35) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -322,7 +322,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 30) {
+  } else if (x >= 30) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(6);
@@ -333,7 +333,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 25) {
+  } else if (x >= 25) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(4);
@@ -344,7 +344,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 20) {
+  } else if (x >= 20) {
     lcd.write(5);
     lcd.write(6);
     lcd.write(1);
@@ -355,7 +355,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 15) {
+  } else if (x >= 15) {
     lcd.write(5);
     lcd.write(4);
     lcd.write(1);
@@ -366,7 +366,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 10) {
+  } else if (x >= 10) {
     lcd.write(5);
     lcd.write(1);
     lcd.write(1);
@@ -377,7 +377,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= 5) {
+  } else if (x >= 5) {
     lcd.write(3);
     lcd.write(1);
     lcd.write(1);
@@ -388,7 +388,7 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (progress >= -10) {
+  } else if (x >= 0 || x <= 0) {
     lcd.write(3);
     lcd.write(1);
     lcd.write(1);
@@ -402,16 +402,16 @@ void displayMoistureBar(int progress) { //Display bar on LCD (1 Segment = 10%, 1
   }
 }
 
-void displayFixedPercentage(int percentage) {  //This function will display 100% even if real value is (for example) 103.
-  if (percentage >= 100) {                     //Due to low accuracy sensor calibration.
+void displayPercentage(int x) {  //This function will display 100% even if real value is (for example) 103.
+  if (x >= 100) {                     //Due to low accuracy sensor calibration.
     lcd.setCursor(11, 1);
     lcd.print("100%   ");
-  } else if (percentage <= 0) {
+  } else if (x <= 0) {
     lcd.setCursor(11, 1);
     lcd.print("0%   ");
   } else {
     lcd.setCursor(11, 1);
-    lcd.print(String(percentage) + "%   ");
+    lcd.print(String(x) + "%   ");
   }
 }
 
