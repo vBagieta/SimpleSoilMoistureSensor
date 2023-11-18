@@ -20,8 +20,8 @@ Ten program jest napisany w języku programowania C++.
 | Pin Arduino | Pin wyświetlacza | Pin czujnika |
 |-------------|------------------|--------------|
 | GND         | GND              | GND          |
-| SDA         | A4              | ❌            |
-| SCL         | A5             | ❌            |
+| A4         | SDA              | ❌            |
+| A5         | SCL             | ❌            |
 | A0          | ❌                | AOUT         |
 | 5V          | VCC              | ❌            |
 | 3.3V        | ❌                | VCC          |
@@ -92,8 +92,8 @@ This program is written in the C++ programming language.
 | Arduino Pin | Display Pin | Sensor Pin |
 |-------------|-------------|------------|
 | GND         | GND         | GND        |
-| SDA         | A4          | ❌          |
-| SCL         | A5          | ❌          |
+| A4         | SDA              | ❌            |
+| A5         | SCL             | ❌            |
 | A0          | ❌          | AOUT       |
 | 5V          | VCC         | ❌          |
 | 3.3V        | ❌          | VCC        |
