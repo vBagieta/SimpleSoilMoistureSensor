@@ -404,13 +404,13 @@ void displayBar(int x) { //Make a percentage bar
 
 void displayPercentage(int x) {  //This function will display 100% even if real value is (for example) 103.
   if (x >= 100) {                     //Due to low accuracy sensor calibration.
-    lcd.setCursor(11, 1);
+    lcd.setCursor(1, 1);
     lcd.print("100%   ");
   } else if (x <= 0) {
-    lcd.setCursor(11, 1);
+    lcd.setCursor(1, 1);
     lcd.print("0%   ");
   } else {
-    lcd.setCursor(11, 1);
+    lcd.setCursor(1, 1);
     lcd.print(String(x) + "%   ");
   }
 }
