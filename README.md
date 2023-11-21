@@ -7,7 +7,7 @@ Prosty czujnik wilgotności gleby używający mikrokontrolera Arduino UNO.
 - [Czujnik wilgotności gleby](https://botland.com.pl/gravity-czujniki-pogodowe/10305-dfrobot-gravity-analogowy-czujnik-wilgotnosci-gleby-odporny-na-korozje-sen0193-5903351243155.html?cd=18298825651&ad=&kd=&gclid=CjwKCAjwgqejBhBAEiwAuWHioMwWA4SEuGi1RUKJWuG2f7o5MhYemAxIOgkFh670djLlfkb2HUvX_BoCisoQAvD_BwE)
 - [Wyświetlacz LCD (2x16) wraz z modułem I2C](https://botland.com.pl/wyswietlacze-alfanumeryczne-i-graficzne/2351-wyswietlacz-lcd-2x16-znakow-niebieski-konwerter-i2c-lcm1602-5904422309244.html)
 
-## Język programowania
+## Kod
 Ten program jest napisany w języku programowania C++.
 
 👉 [Wyświetl kod](https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/soil-moisture-sensor.ino)
@@ -79,7 +79,7 @@ A simple soil moisture sensor using an Arduino UNO microcontroller.
 - [Soil Moisture Sensor](https://botland.com.pl/gravity-czujniki-pogodowe/10305-dfrobot-gravity-analogowy-czujnik-wilgotnosci-gleby-odporny-na-korozje-sen0193-5903351243155.html?cd=18298825651&ad=&kd=&gclid=CjwKCAjwgqejBhBAEiwAuWHioMwWA4SEuGi1RUKJWuG2f7o5MhYemAxIOgkFh670djLlfkb2HUvX_BoCisoQAvD_BwE)
 - [LCD Display (2x16) with I2C Module](https://botland.com.pl/wyswietlacze-alfanumeryczne-i-graficzne/2351-wyswietlacz-lcd-2x16-znakow-niebieski-konwerter-i2c-lcm1602-5904422309244.html)
 
-## Programming Language
+## Code
 This program is written in the C++ programming language.
 
 👉 [View Code](https://github.com/vBagieta/SimpleSoilMoistureSensor/blob/main/soil-moisture-sensor.ino)
