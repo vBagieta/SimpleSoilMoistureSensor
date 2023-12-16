@@ -388,7 +388,7 @@ void displayBar(int x) { //Make a percentage bar
     lcd.write(1);
     lcd.write(1);
     lcd.write(2);
-  } else if (x >= 0 || x <= 0) {
+  } else if (x < 5) {
     lcd.write(3);
     lcd.write(1);
     lcd.write(1);
